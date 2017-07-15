@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 REPO_URL=ssh://borg@backupserver.com:212/storage/mymac
 REPO_PASSWORD=CieKo5iePo
 
@@ -12,7 +13,7 @@ function backup {
 		--exclude '~/Downloads' \
 		--exclude '*.pyc' \
 		&& touch ~/.lastbackup \
-		&& osascript -e "display notification \"Backup complete\" with title \"Borgbackup\"" \
+		&& osascript -e "display notification \"Backup completed\" with title \"Borgbackup\"" \
 		|| ([ $1 -ge 604800 ] \
 		&& osascript -e "display notification \"ERROR: Backup was failed during week\" with title \"Borgbackup\"")
 }
