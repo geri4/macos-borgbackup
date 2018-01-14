@@ -1,5 +1,8 @@
 # MacOS borgbackup script # 
 
+Backups for MacOS with borgbackup utility.
+Tested with borgbackup version 1.1.4
+
 ## Server side ##
 1. Install docker on server
 2. Run container:
@@ -15,7 +18,7 @@ brew install borgbackup
 ```
 2. Initialyze repository, specify repo password and remember it:
 ```
-borg init ssh://borg@backupserver.com:212/storage/mymac
+borg init -e repokey ssh://borg@backupserver.com:212/storage/mymac
 ```
 
 3. Copy backup.sh from this script to your home directory and give it run permissions:
